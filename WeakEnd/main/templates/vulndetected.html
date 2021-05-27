@@ -1,0 +1,155 @@
+{% extends "base.html" %} 
+{% block content %}
+{% load static %}
+<style>
+	.progress h3 {
+		margin: 0;
+	}
+</style>
+<!-- Banner -->
+<section style="padding: 4em 0 0 0;">
+	<header class="main">
+		<h1 style="text-align: center; margin-bottom: 0;">Vuln Detected</h1>
+			
+		{% if task_id != 0 %}
+		<div class="progress" style="float:right; margin-right: 90px;" >
+			<h3 style="float:left;">Progress Bar</h3>
+			<h3 id="percent" style="float:right"></h3>
+			<br><br>
+			<div class="bar"></div>
+		</div>
+	   {% endif %}
+
+		<section style="margin: 6% 5% 0 5%; height: 750px;">
+		<div style="overflow:scroll; width: 45%; position:relative; height: 700px; padding: 5px; margin-right: 10%; float:left; border: 1px black solid; border-radius: 0.375em;">
+			<a href="javascript:window.location.reload(true);" style="float: right; margin-right:5px; font-size:smaller; padding:4px 5px 4px 5px;">
+				<img src="{% static 'img/refresh3.png' %}" alt="" style="width:40px;"/>
+			</a>
+			<h2 style="text-align: center;">Vuln Lists</h2>
+			{% for key, value in outputs.items %}
+				{% for i in value %}
+					<div class="vulnlist">
+						{% if key == 'LFI' %}
+							<h3>Local File Inclusion #{{forloop.counter}}</h3>
+						{% elif key == 'RFI' %}
+							<h3>Remote File Inclusion #{{forloop.counter}}</h3>
+						{% elif key == 'CI' %}
+							<h3>Command Injection #{{forloop.counter}}</h3>
+						{% elif key == 'SQLI' %}
+							<h3>SQL Injection #{{forloop.counter}}</h3>
+						{% elif key == 'XSS' %}
+							<h3>Cross-Site Scripting #{{forloop.counter}}</h3>
+						{% endif %}
+						<button class="search_button" id={{key}} value= {{forloop.counter0}}>View</button>
+					</div>
+				{% endfor %}
+			{% endfor %}
+			<button onclick="location.href='/reports/{{new_id}}';" style="position: absolute; left: 50%; transform:translate(-50%, -50%); bottom:0px;">View Vulnerability Diagnostics Report</button>
+		</div>
+		<div style="width: 45%; position:relative; height: 700px; padding: 5px; float:left; border: 1px black solid; border-radius: 0.375em;">
+			<h2 style="text-align: center;">Vuln Points</h2>
+			<textarea id="aftercode" style="resize: none; height: 520px;">Vuln Points</textarea>
+			<button onclick="location.href='/patch';" id="patch_button"style="position: absolute; left: 50%; display: none; transform:translate(-50%, -50%); bottom:0px;" >Patch Vuln Points</button>
+		</div>
+		</section>
+		
+	</header>
+</section>
+<br><br>
+<section>
+	<h3 style="text-align: center;">How to use</h3>
+	<br/>
+	<div class="detectcontainer">
+		<div class="item2">1. Vuln Lists on left side means Vuln type of Your Website.<br>2. if You click the green button, You can see vuln part of your Website.<br>3. The Vuln part of the Website described by red background color of your Website.<br>4. Remember your Vuln part, press the patch button. We can help your patch.<br>5. If you click the bottom side red button, you can view a Vuln report about your Website.</div>
+	</div>
+	<br/><br/>
+	<h3 style="text-align: center;">Caution</h3>
+	<br/>
+	<div class="detectcontainer">
+		<div class="item2">For more accurative vuln code patch, You have to remember where the Vuln appeared<br>#1,#2 means same type of Vuln skill appeared on other pages.</div>
+	</div>
+	<div style="text-align: center; font-size:20px; padding-top: 50px; padding-bottom: 50px;">
+		<a href="javascript:topFunction();"><i class="fas fa-arrow-alt-circle-up"> Back to top</i></a>
+	</div>
+</section>
+<input type="hidden" id="new_id" name="new_id" value={{new_id}}>
+<input type="hidden" id="patch_id" name="patch_id" value='LFI'>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+
+<!-- View Button -->
+<script>
+	$('.search_button').click(function(){
+		var search_key = this.value
+		var search_id = this.id
+		var new_id = document.getElementById('new_id').value
+
+		$.ajax({
+			url:'vulngive/',
+			data : { 'search_key':search_key,'search_id':search_id,'new_id':new_id},
+			success:function(output_data){
+				var method=JSON.stringify(output_data['output_data']['method']);
+				var url=JSON.stringify(output_data['output_data']['url']);
+				var data=JSON.stringify(output_data['output_data']['data']);
+				$("#patch_id").val(search_id);
+				$("#patch_button").show();
+				//if data=GET method
+				
+				var d = document.getElementById('aftercode');
+				if(data == null){
+					d.innerHTML="method : "+method+"\npayload: " + url;
+				}
+				else{
+					d.innerHTML="method : "+method+"\naction URL: " + url + "\nparameter: "+ data;
+				}
+			}
+		})
+	})
+	
+</script>
+
+<!-- progress bar -->
+<script type="text/javascript">
+   var poll_xhr;
+   var willstop = 0;
+  (function(){
+    var poll = function(){
+      var json_dump = "{{ data }}";
+      var task_id = "{{task_id}}";
+
+      console.log(task_id);
+      poll_xhr = $.ajax({
+        url:'progress',
+        type: 'POST',
+        data: {
+            task_id: task_id,
+            csrfmiddlewaretoken: "{{csrf_token}}",
+        },
+        success: function(result) {
+					console.log(result.process_percent)
+                    if (result.process_percent == null || result.process_percent == undefined) {
+                        willstop = 1;
+                        jQuery('.bar').css({'width': 100 + '%'});
+                        jQuery('#percent').html(100 + '%');
+                       } else {
+						
+                         jQuery('.bar').css({'width': result.process_percent + '%'});
+                         jQuery('#percent').html(result.process_percent + '%');
+                       };
+                    }
+      });
+    };
+
+    var refreshIntervalId = setInterval(function() {
+      poll();
+      if(willstop == 1){
+        clearInterval(refreshIntervalId);
+      }
+    },500);
+
+
+  })();
+ </script>
+
+{% endblock content %}
